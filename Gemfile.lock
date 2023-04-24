@@ -235,7 +235,9 @@ DEPENDENCIES
   debug
   importmap-rails
   jbuilder
+
   jquery-rails
+
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
   sassc-rails (>= 2.1.0)
