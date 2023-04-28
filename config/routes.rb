@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
    get "about", to: "welcome#about"
 
+   get "signup", to: "users#new"
+
+   resources :users, except: [:new]
+
 
   
 end
