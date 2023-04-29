@@ -24,50 +24,50 @@ class ArticlesController < ApplicationController
     else
       render 'new'
     end
-  end 
+   end 
 
-
-  def update
-
-@article = Article.find(params[:id])
-
-if @article.update(article_params)
-
-flash[:sucess] = "Article was successfully updated"
-
-redirect_to article_path(@article)
-
-else
-
-render 'edit'
-
-end
-
-end
+  def edit
   
-
-   
-   def edit
-    @article = Article.find(params[:id])
+   @article = Article.find(params[:id])
+  
   end 
 
   def show
 
-  @article = Article.find(params[:id])
+   @article = Article.find(params[:id])
+
+  end
+
+
+  def update
+
+   @article = Article.find(params[:id])
+
+  if @article.update(article_params)
+
+   flash[:sucess] = "Article was successfully updated"
+
+   redirect_to article_path(@article)
+
+  else
+
+   render 'edit'
+
+  end
 
   end
   
   def destroy
 
-@article = Article.find(params[:id])
+   @article = Article.find(params[:id])
 
-@article.destroy
+   @article.destroy
 
-flash[:danger] = "Article was successfully deleted"
+   flash[:danger] = "Article was successfully deleted"
 
-redirect_to articles_path
+   redirect_to articles_path
 
-end
+  end
 
 
   private
