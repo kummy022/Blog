@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #08088A;
+  background-color: #FF0000;
 }
 
 
@@ -23,14 +23,16 @@ font-weight: bold;
 
 }
 
-
 .center{
 	text-align: center;
 }
 
 .navbar-nav > li {
-  margin-right: 20px;
-  margin-left: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+  list-style: none;
+  font-weight: bold;
+
 }
 
 
@@ -76,6 +78,16 @@ list-style: none;
 padding-left: 0;
 
 }
+
+.center {
+  
+ display: flex;
+ 
+ justify-content: center;
+ 
+ align-items: center;
+}
+
 
 footer {
 
@@ -154,4 +166,7 @@ padding-top: 15px;
 
 padding-bottom: 15px;
 
+font-size: 1.75em;
 }
+
+

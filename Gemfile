@@ -8,6 +8,10 @@ gem "rails", "~> 7.0.4", ">= 7.0.4.3"
 
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'will_paginate', '~> 3.3.1'
+
+gem 'bootstrap-will_paginate', '0.0.10'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
@@ -34,8 +38,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
-
+# gem "redis", "~> 4.0
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
