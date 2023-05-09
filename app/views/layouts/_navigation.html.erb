@@ -15,32 +15,21 @@
       <%= link_to "Articles", articles_path, class: "nav-link" %>
       </li></ul>
       <li class="nav-item dropdown">
+        <% if logged_in? %>
         <div class="dropdown">
-          <a class="secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          <a href="#" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
             Actions
           </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
     <li><%= link_to "New Article", new_article_path %></li>
     <li><a class="dropdown-item" href="#">Another action</a></li>
     <li><a class="dropdown-item" href="#">Something else here</a></li>
-  </ul>
-      </li>
+    </ul>
+    <% end %>
+    </li>
 
-            <li class="nav-item dropdown">
-              <div class="dropdown">
-              <a class="secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                Products
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><%= link_to "New Article", new_article_path %></li>
-                <li><a class="dropdown-item" href="#">Product 2</a></li>
-                <li><a class="dropdown-item" href="#">Product 3</a></li>
-              </ul>
-            </li>
-
-
-     <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+      <li class="nav-item">
+        <%= link_to "Users", users_path %>
       </li>    
       <li class="nav-item">
         <form class="form-inline my-2 my-lg-0">
@@ -49,8 +38,50 @@
         </form>
       </li>
       <ul class="nav navbar-nav navbar navbar-right">
-        <li><%= link_to "Log out", logout_path, method: :delete %></li>
+        <% if logged_in? %>
+         
+      <li><%= button_to "Logout", logout_path, method: :delete %></li>
       </ul>
+
+
+
+      <% else %>
+      <li><%= link_to "Log in", login_path %></li>
+
+      <li><%= link_to "Sign up", signup_path %></li>
+      
+      <% end %>
+
+
+      <li class="nav-item dropdown">
+              
+              <div class="dropdown">
+              
+              <a href="#" class="dropdown-toggle" role="button" id="dropdownMenuButton" aria-haspopup="true"  
+              data-bs-toggle="dropdown" aria-expanded="false">Your Profile<span class="caret"></span>
+              
+              </a>
+              
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                   
+              <% if current_user %>
+
+              <li><%= link_to "Edit your profile", edit_user_path(current_user.id) %></li>
+
+
+                <li><%= link_to "View your profile", user_path(current_user) %></li>
+
+                <li><a href="#">Something else here</a></li>
+
+                <li role="separator" class="divider"></li>
+
+                <li><a href="#">Separated link</a></li>
+
+
+              </ul>
+      </li>
+              <% end %>
+
     </ul>
   </div>
 </div>
