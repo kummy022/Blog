@@ -56,9 +56,11 @@
       <li class="nav-item dropdown">
               
               <div class="dropdown">
+
+                <% if current_user.present? %>
               
               <a href="#" class="dropdown-toggle" role="button" id="dropdownMenuButton" aria-haspopup="true"  
-              data-bs-toggle="dropdown" aria-expanded="false">Your Profile<span class="caret"></span>
+              data-bs-toggle="dropdown" aria-expanded="false">Your Profile <%= "Admin" if current_user.admin?%><span class="caret"></span>
               
               </a>
               
@@ -66,7 +68,7 @@
                    
               <% if current_user %>
 
-              <li><%= link_to "Edit your profile", edit_user_path(current_user.id) %></li>
+                <li><%= link_to "Edit your profile", edit_user_path(current_user.id) %></li>
 
 
                 <li><%= link_to "View your profile", user_path(current_user) %></li>
@@ -79,6 +81,7 @@
 
 
               </ul>
+              <% end %>
       </li>
               <% end %>
 
